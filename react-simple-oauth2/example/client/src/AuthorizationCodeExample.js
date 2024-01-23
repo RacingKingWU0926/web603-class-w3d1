@@ -14,8 +14,10 @@ export default function AuthorizationCodeExample() {
 
   // You can test this with a GitHub OAuth2 app (provided test server supports GitHub and Spotify)
   const onSuccess = ({ code }) => fetch(`${serverUrl}/github/token?code=${code}`)
+    .then(data => console.log(`what is data??? ${data}`))
+    .then(data => console.log(`what is result??? ${res}`))
     .then(res => res.json())
-    .then(data => setAccessToken(data.access_token));
+    .then(data => setAccessToken(data.token));
 
   return (
     <div className="column">
